@@ -1,0 +1,25 @@
+$barebones: (
+	name: mobile,
+	prefix: m,
+	start: false,
+	end: 760px,
+	columns: 4,
+	gutter: 10,
+	padding: 10
+), (
+	name: tablet,
+	prefix: t,
+	start: 761px,
+	end: 1120px,
+	columns: 12,
+	gutter: 20,
+	padding: 20
+), (
+	name: laptop,
+	prefix: d,
+	start: 1121px,
+	end: false,
+	columns: 12,
+	gutter: 20,
+	padding: 60
+) !default;

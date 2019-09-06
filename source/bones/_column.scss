@@ -1,0 +1,40 @@
+@mixin column($layout){
+	$prefix: map-get($layout, prefix);
+	$start: map-get($layout, start);
+	$end: map-get($layout, end);
+	$columns: map-get($layout, columns);
+	$gutter: map-get($layout, gutter);
+	$padding: map-get($layout, padding);
+	$break-statement: false;
+
+	@if $start and $end {
+		$break-statement: "min-width: " + $start + ") and (max-width: " + $end;
+	} @else if $start {
+		$break-statement: "min-width: " + $start;
+	} @else{
+		$break-statement: "max-width: " + $end;
+	}
+	@media ($break-statement){
+		.grid{
+			padding-left: $padding * 1px;
+			padding-right: $padding * 1px;
+		}
+		*[class*=grid-#{$prefix}]{
+			display: block;
+			padding-left: $gutter * 1px;
+			padding-right: $gutter * 1px;
+		}
+		@for $i from 1 through $columns {
+			.push-#{$prefix}-#{$i}{
+				margin-left: ( ( 100 / $columns ) * $i ) * 1%;
+			}
+			.grid-#{$prefix}-#{$i}{
+				width: ( ( 100 / $columns ) * $i ) * 1%;
+			}
+		}
+		.grid-#{$prefix}-hide{
+			display: none !important;
+		}
+	}
+
+}

@@ -1,0 +1,8 @@
+@import 'bones/settings';
+@import 'bones/clearfix';
+@import 'bones/containers';
+@import 'bones/column';
+
+@each $layout in $barebones{
+	@include column($layout);
+}
