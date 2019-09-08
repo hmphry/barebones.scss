@@ -113,7 +113,7 @@ Want to... I don't know... live on the edge and make like 10 different grids for
 I'm not going to mock this up because I *morally* object to it, but it is still possible.
 ````
 
-Feel free to drop a line in the issues or reach out to me on [twitter](https://twitter.com/heyhmphry) should you ever need anything.
+Feel free to drop a line in the issues or reach out to me on [twitter](https://twitter.com/heyhmphry) should you ever need anything. <3
 
 
 
