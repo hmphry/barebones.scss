@@ -1,6 +1,6 @@
 {
   "name": "barebones.scss",
-  "version": "2.0.0",
+  "version": "1.0.0",
   "description": "A simple SCSS grid solution, built on top of flexbox.",
   "main": "index.js",
   "scripts": {
