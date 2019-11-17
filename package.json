@@ -1,0 +1,25 @@
+{
+  "name": "barebones.scss",
+  "version": "2.0.0",
+  "description": "A simple SCSS grid solution, built on top of flexbox.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hmphry/barebones.git"
+  },
+  "keywords": [
+    "scss",
+    "grid",
+    "flex",
+    "flexbox"
+  ],
+  "author": "Emily Humphrey",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/hmphry/barebones/issues"
+  },
+  "homepage": "https://github.com/hmphry/barebones#readme"
+}

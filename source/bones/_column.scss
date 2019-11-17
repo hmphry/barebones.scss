@@ -1,4 +1,4 @@
-@mixin column($layout){
+@mixin column($ns, $box, $layout){
 	$prefix: map-get($layout, prefix);
 	$start: map-get($layout, start);
 	$end: map-get($layout, end);
@@ -11,30 +11,49 @@
 		$break-statement: "min-width: " + $start + ") and (max-width: " + $end;
 	} @else if $start {
 		$break-statement: "min-width: " + $start;
-	} @else{
+	} @else if $end {
 		$break-statement: "max-width: " + $end;
 	}
+
 	@media ($break-statement){
-		.grid{
+		.#{$ns}{
+			width: bb_container_width($padding, $box);
 			padding-left: $padding * 1px;
 			padding-right: $padding * 1px;
 		}
-		*[class*=grid-#{$prefix}]{
+		*[class*=#{$ns}-#{$prefix}]{
 			display: block;
 			padding-left: $gutter * 1px;
 			padding-right: $gutter * 1px;
 		}
 		@for $i from 1 through $columns {
-			.push-#{$prefix}-#{$i}{
+			.#{$ns}-push-#{$prefix}-#{$i}{
 				margin-left: ( ( 100 / $columns ) * $i ) * 1%;
 			}
-			.grid-#{$prefix}-#{$i}{
-				width: ( ( 100 / $columns ) * $i ) * 1%;
+			.#{$ns}-#{$prefix}-#{$i}{
+				width: bb_column_width($i, $columns, $gutter, $box);
 			}
 		}
-		.grid-#{$prefix}-hide{
+		.#{$ns}-#{$prefix}-hide{
 			display: none !important;
 		}
 	}
 
+}
+
+@function bb_container_width($padding, $box){
+	@if $box == "border"{
+		@return 100%;
+	} @else{
+		@return calc(100% - #{$padding * 2px});
+	}
+}
+
+@function bb_column_width($i, $columns, $gutter, $box){
+	$w: ( ( 100 / $columns ) * $i ) * 1% ;
+	@if $box == "border"{
+		@return $w;
+	} @else{
+		@return calc(#{$w} - #{$gutter * 2px});
+	}
 }

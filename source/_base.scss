@@ -3,6 +3,25 @@
 @import 'bones/containers';
 @import 'bones/column';
 
-@each $layout in $barebones{
-	@include column($layout);
+
+@mixin barebones(){
+	$bb_ns: get-bones(namespace);
+	$bb_box: get-bones(box-sizing);
+	$bb_grid: get-bones(layouts);
+
+	@include bb_containers($bb_ns);
+
+	@each $layout in $bb_grid{
+		@include column($bb_ns, $bb_box, $layout);
+	}
 }
+
+@function get-bones($key) {
+	@if map-has-key($barebones, $key) {
+		@return map-get($barebones, $key);
+	} @else {
+		@return map-get($default-barebones, $key);
+	}
+}
+
+@include barebones();
