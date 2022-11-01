@@ -1,3 +1,7 @@
+# Deprecation Notice
+
+This repo is pointless with CSS Grid. Just use that.
+
 # Overview
 A simple SCSS grid solution, built on top of flexbox.
 
